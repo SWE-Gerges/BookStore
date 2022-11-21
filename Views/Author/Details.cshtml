@@ -1,0 +1,43 @@
+@model BookStore.Models.Author
+@{
+    ViewData["Title"] = "Details";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.authorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.authourId)
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.authorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.authourId)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a asp-action="Edit" asp-route-id="@Model.authourId"><i>Edit</i></a>
+</body>
+
+</html>

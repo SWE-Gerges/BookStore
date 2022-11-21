@@ -1,0 +1,71 @@
+@model IEnumerable<BookStore.Models.Book>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.bookId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bookName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bookDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author.authorName)
+                </th>
+                <th>
+                   Image
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bookId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bookName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bookDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author.authorName)
+                    </td>
+                     <td>
+                       <img src="~/uploads/@item.imgURL" style="width:64px;" class="img-thumbnail" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.bookId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.bookId}) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.bookId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+</html>
